@@ -24,7 +24,8 @@
     "dev:h5": "npm run build:h5 -- --watch",
     "dev:rn": "npm run build:rn -- --watch",
     "dev:qq": "npm run build:qq -- --watch",
-    "dev:quickapp": "npm run build:quickapp -- --watch"
+    "dev:quickapp": "npm run build:quickapp -- --watch",
+    "lint": ""
   },
   "browserslist": [
     "last 3 versions",
@@ -35,30 +36,40 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.7.7",
+    "@tarojs/components": "3.0.14",
+    "@tarojs/react": "3.0.14",
     "@tarojs/runtime": "3.0.14",
     "@tarojs/taro": "3.0.14",
-    "@tarojs/components": "3.0.14",
     "mobx": "^4.8.0",
     "mobx-react": "^6.1.4",
-    "react-dom": "^16.10.0",
-    "@tarojs/react": "3.0.14",
-    "react": "^16.10.0"
+    "react": "^16.10.0",
+    "react-dom": "^16.10.0"
   },
   "devDependencies": {
-    "@types/webpack-env": "^1.13.6",
-    "@types/react": "^16.0.0",
-    "@tarojs/mini-runner": "3.0.14",
     "@babel/core": "^7.8.0",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@tarojs/mini-runner": "3.0.14",
     "@tarojs/webpack-runner": "3.0.14",
-    "babel-preset-taro": "3.0.14",
-    "eslint-config-taro": "3.0.14",
-    "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.8.2",
-    "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-react-hooks": "^1.6.1",
-    "stylelint": "9.3.0",
-    "@typescript-eslint/parser": "^2.x",
+    "@types/react": "^16.0.0",
+    "@types/webpack-env": "^1.13.6",
     "@typescript-eslint/eslint-plugin": "^2.x",
+    "@typescript-eslint/parser": "^2.x",
+    "babel-preset-taro": "3.0.14",
+    "eslint": "^6.8.0",
+    "eslint-config-taro": "3.0.14",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-react": "^7.8.2",
+    "eslint-plugin-react-hooks": "^1.6.1",
+    "husky": "^4.3.6",
+    "stylelint": "9.3.0",
     "typescript": "^3.7.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint --fix",
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
+      "post-commit": "git update-index --again"
+    }
   }
 }

@@ -12,3 +12,4 @@
 [] 引入pont
 [] 引入common.css
 [] 开发一个plugin处理component
+[] 引入前端代码错误监控
